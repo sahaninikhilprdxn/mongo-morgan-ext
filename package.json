@@ -1,6 +1,6 @@
 {
   "name": "mongo-morgan-ext",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Detailed logging structure for mongo-morgan",
   "main": "index.js",
   "scripts": {
