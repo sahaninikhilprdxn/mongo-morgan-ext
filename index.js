@@ -125,7 +125,7 @@ HTTPlogger.token('id', function getId(req) {
 });
 
 function mongoMorganExtendedFormat(db,collectionname,skipfunction) {
-HTTPlogger(db, StructuredLogging(), {
+return HTTPlogger(db, StructuredLogging(), {
     skip: skipfunction,
     collection: collectionname
 })
