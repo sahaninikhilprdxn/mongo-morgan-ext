@@ -1,7 +1,7 @@
 {
   "name": "mongo-morgan-ext",
   "version": "1.0.0",
-  "description": "Structure for Mongo-morgan",
+  "description": "Detailed logging structure for mongo-morgan",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
