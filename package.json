@@ -1,0 +1,30 @@
+{
+  "name": "mongo-morgan-ext",
+  "version": "1.0.0",
+  "description": "Structure for Mongo-morgan",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serganus/mongo-morgan-ext.git"
+  },
+  "keywords": [
+    "mongo-morgan",
+    "morgan",
+    "database",
+    "logs",
+    "mongodb"
+  ],
+  "author": "Gautam Anand <me@gautamanand.in> (http://gautamanand.in)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/serganus/mongo-morgan-ext/issues"
+  },
+  "homepage": "https://github.com/serganus/mongo-morgan-ext#readme",
+  "dependencies": {
+    "mongo-morgan": "^2.0.1",
+    "rid": "0.0.1"
+  }
+}
