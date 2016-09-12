@@ -1,5 +1,5 @@
 # mongo-morgan-ext
-This npm module allows you to log to your mongoDB with more details. It is based on (mongo-morgan)[https://github.com/emech-en/mongo-morgan]
+This npm module allows you to log to your mongoDB with more details. It is based on [mongo-morgan](https://github.com/emech-en/mongo-morgan)
 
 <p align="left">
 <a href="https://david-dm.org/serganus/mongo-morgan-ext"><img src="https://david-dm.org/serganus/mongo-morgan-ext.svg" alt="Dependency Status"></a>
@@ -9,7 +9,7 @@ This npm module allows you to log to your mongoDB with more details. It is based
 
 ## Why this exists?
 
-- Morgan is awesome at logging but with mongo-morgan its now logged into mongo database. Useful if you are looking to use morgan instead of (winston) [https://www.npmjs.com/package/winston] or (bunyan) [https://www.npmjs.com/package/bunyan.
+- Morgan is awesome at logging but with mongo-morgan its now logged into mongo database. Useful if you are looking to use morgan instead of [winston] (https://www.npmjs.com/package/winston) or [bunyan] (https://www.npmjs.com/package/bunyan).
 - This module uses mongo-morgan and extends to format to log all HTTP request and response objects.
 
 ## Installation in your project
