@@ -60,7 +60,8 @@ function StructuredLogging() {
                 'If-Modified-Since': tokens['req'](req, res, 'If-Modified-Since'), //10:42
                 'If-None-Match': tokens['req'](req, res, 'If-None-Match'), //10:43
                 'If-Range': tokens['req'](req, res, 'If-Range'), //10:44
-                'If-Unmodified-Since': tokens['req'](req, res, 'If-Unmodified-Since') //10:45
+                'If-Unmodified-Since': tokens['req'](req, res, 'If-Unmodified-Since'), //10:45
+                'body':tokens['reqbody'](req, res)//10:46
             },
             'RESPONSE': { //11
                 'Status': tokens['res'](req, res, 'Status'), //11:01
@@ -122,6 +123,13 @@ function StructuredLogging() {
 
 HTTPlogger.token('id', function getId(req) {
     return RID;
+});
+
+
+HTTPlogger.token('reqbody', function getId(req) {
+    if(req.method === 'POST'){
+        return req.body;
+    }
 });
 
 function mongoMorganExtendedFormat(db,collectionname,skipfunction) {
