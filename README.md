@@ -89,7 +89,8 @@ app.use(logger(db,collection,skipfunction)); //In your express-application
         "If-Modified-Since": "",
         "If-None-Match": "",
         "If-Range": "",
-        "If-Unmodified-Since": ""
+        "If-Unmodified-Since": "",
+        "body":""
     },
     "RESPONSE": {
         "Status": "",
