@@ -4,9 +4,16 @@ var RID = rid();
 
 function StructuredLogging() {
     return function(tokens, req, res) {
+        let clientname;
+        if(req.url === '/signin'){
+            clientname = req.body.clientname;
+        }else{
+            clientname = req.decodedToken.clientname;
+        }
+
         var JSONLine = JSON.stringify({
             'RequestID': tokens['id'](req, res),
-            'clientname': req.decodedToken.clientname,
+            'clientname': clientname,
             'ingredientName': req.query.name || '',
             'upc': req.query.upc || '',
             'sku': req.query.sku || '',
