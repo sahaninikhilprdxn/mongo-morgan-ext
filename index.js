@@ -6,6 +6,10 @@ function StructuredLogging() {
     return function(tokens, req, res) {
         var JSONLine = JSON.stringify({
             'RequestID': tokens['id'](req, res),
+            'clientname': req.decodedToken.clientname,
+            'ingredientName': req.query.name || '',
+            'upc': req.query.upc || '',
+            'sku': req.query.sku || '',
             'status': tokens.status(req, res), //1
             'method': tokens.method(req, res), //2
             'Remote-user': tokens['remote-user'](req, res), //3
