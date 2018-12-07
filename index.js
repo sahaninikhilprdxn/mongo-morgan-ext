@@ -5,25 +5,6 @@ var RID = rid();
 function StructuredLogging() {
     return function (tokens, req, res) {
 
-        /*
-         * converts Date to MM/DD/YYYY format
-         * @param  {Date}   date
-         * @param  {String} seperator
-         * 
-         */
-        let date        =   new Date(),
-            seperator   =   "-",
-            day         =   date.getDate(),
-            month       =   date.getMonth() + 1;
-
-        if (month.toString().length < 2) {
-            month = '0' + month;
-        }
-        if (day.toString().length < 2) {
-            day = '0' + day;
-        }
-
-        let MmDdYyyy = `${month}${seperator}${day}${seperator}${date.getFullYear()}`;
         let clientname;
         if (req.url === '/signin' || req.url === '/register') {
             clientname = req.body.clientname;
@@ -44,7 +25,7 @@ function StructuredLogging() {
             'url': tokens.url(req, res), //5
             'HTTPversion': 'HTTP/' + tokens['http-version'](req, res), //6
             'Response-time': tokens['response-time'](req, res, 'digits'), //7
-            'date': MmDdYyyy, //8
+            'date': tokens.date(req, res, 'web'), //8
             'Referrer': tokens.referrer(req, res), //9
             'REQUEST': { //10
                 'Accept': tokens['req'](req, res, 'Accept'), //10:01
