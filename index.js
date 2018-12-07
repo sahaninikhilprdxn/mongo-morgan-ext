@@ -21,7 +21,7 @@ function StructuredLogging() {
             'method': tokens.method(req, res), //2
             'Remote-user': tokens['remote-user'](req, res), //3
             'Remote-address': tokens['remote-addr'](req, res), //4
-            'URL': tokens.url(req, res), //5
+            'url': tokens.url(req, res), //5
             'HTTPversion': 'HTTP/' + tokens['http-version'](req, res), //6
             'Response-time': tokens['response-time'](req, res, 'digits'), //7
             'date': tokens.date(req, res, 'web'), //8
