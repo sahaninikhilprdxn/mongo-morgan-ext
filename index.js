@@ -5,7 +5,7 @@ var RID = rid();
 function StructuredLogging() {
     return function(tokens, req, res) {
         let clientname;
-        if(req.url === '/signin'){
+        if(req.url === '/signin' || req.url === '/register'){
             clientname = req.body.clientname;
         }else{
             clientname = req.decodedToken.clientname;
