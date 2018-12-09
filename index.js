@@ -14,8 +14,8 @@ function StructuredLogging() {
 
         var JSONLine = JSON.stringify({
             'RequestID': tokens['id'](req, res),
-            'clientname': clientname,
-            'ingredientName': req.query.name || '',
+            'clientname': clientname.toLowerCase(),
+            'ingredientName': req.query.name.toLowerCase() || '',
             'upc': req.query.upc || '',
             'sku': req.query.sku || '',
             'status': tokens.status(req, res), //1
