@@ -5,17 +5,21 @@ var RID = rid();
 function StructuredLogging() {
     return function (tokens, req, res) {
 
-        let clientname;
+        let clientname,ingredientName;
         if (req.url === '/signin' || req.url === '/register') {
-            clientname = req.body.clientname;
+            clientname = req.body.clientname.toLowerCase();
         } else {
-            clientname = req.decodedToken.clientname;
+            clientname = req.decodedToken.clientname.toLowerCase();
+        }
+
+        if(req.query.name){
+            ingredientName = req.query.name.toLowerCase();
         }
 
         var JSONLine = JSON.stringify({
             'RequestID': tokens['id'](req, res),
-            'clientname': clientname.toLowerCase(),
-            'ingredientName': req.query.name.toLowerCase() || '',
+            'clientname': clientname,
+            'ingredientName': ingredientName || '',
             'upc': req.query.upc || '',
             'sku': req.query.sku || '',
             'status': tokens.status(req, res), //1
