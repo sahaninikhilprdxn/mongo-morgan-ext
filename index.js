@@ -11,7 +11,7 @@ function StructuredLogging() {
 				clientname = req.body.clientname.toLowerCase();
 			}
 		} else {
-			clientname = req.decodedToken.clientname.toLowerCase();
+			clientname = req.decodedToken.clientname;
 		}
 
 		if (req.query.name) {
@@ -24,6 +24,7 @@ function StructuredLogging() {
 			'ingredientName': ingredientName || '',
 			'upc': req.query.upc || '',
 			'sku': req.query.sku || '',
+			'handle': req.query.handle || '',
 			'status': tokens.status(req, res), //1
 			'method': tokens.method(req, res), //2
 			'Remote-user': tokens['remote-user'](req, res), //3
