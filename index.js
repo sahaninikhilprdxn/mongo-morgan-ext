@@ -5,13 +5,15 @@ var RID = rid();
 function StructuredLogging() {
 	return function (tokens, req, res) {
 
-		let clientname, ingredientName;
+		let clientname = null, ingredientName;
 		if (req.url === '/signin') {
 			if (req.body.clientname) {
 				clientname = req.body.clientname.toLowerCase();
 			}
 		} else {
-			clientname = req.decodedToken.clientname;
+			if(req.decodedToken.clientname){
+				clientname = req.decodedToken.clientname;
+			}
 		}
 
 		if (req.query.name) {
