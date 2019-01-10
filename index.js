@@ -5,8 +5,9 @@ var RID = rid();
 function StructuredLogging() {
 	return function (tokens, req, res) {
 
-		let clientname = null, ingredientName;
-		if (req.url === '/signin') {
+		let clientname = null;
+		let ingredientName;
+		if (req.url.includes('/signin')) {
 			if (req.body.clientname) {
 				clientname = req.body.clientname.toLowerCase();
 			}
