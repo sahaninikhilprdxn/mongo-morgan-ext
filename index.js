@@ -3,10 +3,10 @@ var rid = require('rid');
 var RID = rid();
 
 function StructuredLogging() {
+	console.log("returning...")
 	return function (tokens, req, res) {
-
 		let clientname = null;
-		let ingredientName;
+		let ingredientName, prevValue, postValue;
 		if (req.url.includes('/signin')) {
 			if (req.body.clientname) {
 				clientname = req.body.clientname.toLowerCase();
@@ -21,7 +21,7 @@ function StructuredLogging() {
 			ingredientName = req.query.name.toLowerCase();
 		}
 
-		var JSONLine = JSON.stringify({
+		var JSONLine = {
 			'RequestID': tokens['id'](req, res),
 			'clientname': clientname || '',
 			'ingredientName': ingredientName || '',
@@ -136,8 +136,17 @@ function StructuredLogging() {
 				'ETag': tokens['res'](req, res, 'ETag'), //11:49
 				'Accept-Patch': tokens['res'](req, res, 'Accept-Patch') //11:50
 			}
-		});
-		return JSONLine;
+		}
+
+		if (req.decodedToken.superAdmin && req.query.prevValue && req.query.postValue) {
+			prevValue = req.query.prevValue;
+			postValue = req.query.postValue;
+
+			JSONLine["New"] = postValue;
+			JSONLine["Previous"] = prevValue;
+		}
+
+		return JSON.stringify(JSONLine);
 
 	}
 }
